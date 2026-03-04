@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyBlog</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  My first post
+</h1>
+<p class="subtitle"><strong><time datetime="2026-03-03T17:54:53-05:00">Tuesday March 3 2026 5:54 PM</time></strong></p>
+<p>I have now started to use a static site generator to make this website. Hopefully, with static sites, I can get a better-performing website. Wish me luck.</p>
+<span id="continue-reading"></span>
+<h2 id="better-performing-how">Better performing, how?</h2>
+<p>Well, let's consider websites generated through a standard called the Common Gateway Interface (CGI for short). CGI is a standard interface in which the HTTP server sends the requests it receives to an external program (such as PHP or Python). Then, that program processes the request and returns the appropriate response.</p>
+<p>The problem with classic CGI is that the external program is set up, executed, then torn down for <strong>every</strong> web request. This introduces a great deal of latency for each request that the server must deal with, not to mention the processor cycles spent actually processing the request.</p>
+<p>The latency issue is somewhat alleviated by the likes of FastCGI and SCGI, which allow the processes to become long-living, mostly avoiding the setup and teardown steps. This also means, in most cases, the process must be able to handle multiple requests at once. This is done either asynchronously or with careful multithreading. This still doesn't help with actually processing the request, which can involve database processing, I/O and web requests, and in most cases, interpreting a script file on the fly.</p>
+<p>Long story short, static websites do not have to worry about processing the request all that much. All they have to do is serve a set of files. It would likely be easier to cache as well, avoiding the relatively expensive disk reads as well.</p>
+<h2 id="downsides">Downsides?</h2>
+<p>The obvious one is web forms. You still need something to receive and process forms. Most statically-generated websites will use a basic PHP script to accept and process the form, but I swear there must be a more efficient way. Also, if you are hosting on a static repository like Github pages, that option is not available.</p>
+<p>The next problem is for user-submitted content. The static site generator must rebuild all relevant pages every time a user posts something to your website.</p>
+<h2 id="what-s-next">What's next?</h2>
+<p>Next for this site is to get a theme going and set up the relevant layouts for this site. Perhaps I can experiment with some form-processors and third-party software for user-submitted content. Or, I can just use this blog to rant about some things I encountered along the way.</p>
+
+
+    </div>
+  </section>
+</body>
+
+</html>
